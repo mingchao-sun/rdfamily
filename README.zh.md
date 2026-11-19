@@ -32,3 +32,5 @@
 引用：Sun, M. *rdfamily* (jamovi module). https://github.com/mingchao-sun/rdfamily 。请同时引用所用方法的原始文献（输出中列出）。
 
 许可：见 `DESCRIPTION`（GPL）；第三方代码与数据见 `NOTICE`。问题与建议：https://github.com/mingchao-sun/rdfamily/issues
+
+日本語の要約:[README.ja.md](README.ja.md)

@@ -2,7 +2,7 @@
 
 A jamovi module for regression discontinuity (RD) designs, built on the CRAN packages `rdrobust`, `rddensity`, `rdlocrand`, `rdmulti`, `rdhte`,
 `rdpower` and `RDHonest`: sharp, fuzzy and kink designs with robust bias-corrected inference, manipulation tests, covariate and robustness checks,
-multiple cutoffs, geographic boundaries, difference-in-discontinuities, honest intervals, local randomization and power. Chinese summary: [README.zh.md](README.zh.md).
+multiple cutoffs, geographic boundaries, difference-in-discontinuities, honest intervals, local randomization and power. Chinese summary: [README.zh.md](README.zh.md). Japanese summary: [README.ja.md](README.ja.md).
 
 ## Analyses (jamovi menu: RDD)
 
