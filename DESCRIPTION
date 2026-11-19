@@ -1,0 +1,28 @@
+Package: rdfamily
+Type: Package
+Title: Regression Discontinuity Family for jamovi
+Version: 1.0.0
+Author: Mingchao Sun
+Maintainer: Mingchao Sun <mingchao.sun@hotmail.com>
+URL: https://github.com/mingchao-sun/rdfamily
+BugReports: https://github.com/mingchao-sun/rdfamily/issues
+Description: Regression discontinuity analyses for jamovi built on the rdrobust,
+    rddensity and rdlocrand packages: sharp, fuzzy and kink designs with robust
+    bias-corrected inference (Calonico, Cattaneo and Titiunik, 2014), manipulation
+    (density) tests (Cattaneo, Jansson and Ma, 2020), covariate balance and placebo
+    outcomes, robustness checks (placebo cutoffs, bandwidths, donut holes,
+    polynomial orders) and local randomization inference (Cattaneo, Frandsen and
+    Titiunik, 2015).
+License: GPL-3
+Encoding: UTF-8
+Imports:
+    jmvcore (>= 2.3.4),
+    R6,
+    ggplot2,
+    rdrobust,
+    rddensity,
+    rdlocrand,
+    rdmulti,
+    RDHonest,
+    rdhte,
+    rdpower

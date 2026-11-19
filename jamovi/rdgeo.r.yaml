@@ -1,0 +1,88 @@
+---
+name: rdgeo
+title: RD Geographic / Two-Score Boundary
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: design
+      title: Design and sample
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+          - cattaneo2022
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: left
+            title: 'Left of cutoff'
+            type: text
+          - name: right
+            title: 'Right of cutoff'
+            type: text
+
+    - name: est
+      title: RD effect at the boundary (signed distance)
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+      columns:
+          - name: method
+            title: 'Method'
+            type: text
+          - name: coef
+            title: 'Estimate'
+            type: number
+          - name: se
+            title: 'Std. error'
+            type: number
+          - name: z
+            title: 'z'
+            type: number
+          - name: p
+            title: 'p'
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: 'CI lower'
+            type: number
+          - name: hi
+            title: 'CI upper'
+            type: number
+
+    - name: mapPlot
+      title: Sample and boundary
+      type: Image
+      width: 640
+      height: 420
+      renderFun: .plotGeo
+      visible: (plot)
+      clearWith:
+          - outcome
+          - treatment
+          - x1
+          - x2
+          - bx
+          - by
+          - boundary
+          - c1
+          - c2
+
+...

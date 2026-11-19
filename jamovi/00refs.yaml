@@ -1,0 +1,129 @@
+---
+refs:
+    calonico2014:
+        type: 'article'
+        author: Calonico, S., Cattaneo, M. D., & Titiunik, R.
+        year: 2014
+        title: 'Robust Nonparametric Confidence Intervals for Regression-Discontinuity Designs'
+        publisher: 'Econometrica, 82(6), 2295-2326. https://doi.org/10.3982/ECTA11757'
+        url: https://doi.org/10.3982/ECTA11757
+
+    cattaneo2020:
+        type: 'article'
+        author: Cattaneo, M. D., Jansson, M., & Ma, X.
+        year: 2020
+        title: 'Simple Local Polynomial Density Estimators'
+        publisher: 'Journal of the American Statistical Association, 115(531), 1449-1455. https://doi.org/10.1080/01621459.2019.1635480'
+        url: https://doi.org/10.1080/01621459.2019.1635480
+
+    cattaneo2015:
+        type: 'article'
+        author: Cattaneo, M. D., Frandsen, B., & Titiunik, R.
+        year: 2015
+        title: 'Randomization Inference in the Regression Discontinuity Design: An Application to Party Advantages in the U.S. Senate'
+        publisher: 'Journal of Causal Inference, 3(1), 1-24. https://doi.org/10.1515/jci-2013-0010'
+        url: https://doi.org/10.1515/jci-2013-0010
+
+    cattaneo2022:
+        type: 'article'
+        author: Cattaneo, M. D., & Titiunik, R.
+        year: 2022
+        title: 'Regression Discontinuity Designs'
+        publisher: 'Annual Review of Economics, 14, 821-851. https://doi.org/10.1146/annurev-economics-051520-021409'
+        url: https://doi.org/10.1146/annurev-economics-051520-021409
+
+    card2015:
+        type: 'article'
+        author: Card, D., Lee, D. S., Pei, Z., & Weber, A.
+        year: 2015
+        title: 'Inference on Causal Effects in a Generalized Regression Kink Design'
+        publisher: 'Econometrica, 83(6), 2453-2483. https://doi.org/10.3982/ECTA11224'
+        url: https://doi.org/10.3982/ECTA11224
+
+    rdrobust:
+        type: 'software'
+        author: Calonico, S., Cattaneo, M. D., & Titiunik, R.
+        year: 2024
+        title: 'rdrobust: Robust Data-Driven Statistical Inference in Regression-Discontinuity Designs'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=rdrobust
+
+    rddensity:
+        type: 'software'
+        author: Cattaneo, M. D., Jansson, M., & Ma, X.
+        year: 2024
+        title: 'rddensity: Manipulation Testing Based on Density Discontinuity'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=rddensity
+
+    rdlocrand:
+        type: 'software'
+        author: Cattaneo, M. D., Titiunik, R., & Vazquez-Bare, G.
+        year: 2024
+        title: 'rdlocrand: Local Randomization Methods for RD Designs'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=rdlocrand
+
+    cattaneo2021:
+        type: 'article'
+        author: Cattaneo, M. D., Keele, L., Titiunik, R., & Vazquez-Bare, G.
+        year: 2020
+        title: 'Extrapolating Treatment Effects in Multi-Cutoff Regression Discontinuity Designs'
+        publisher: 'Journal of the American Statistical Association, 116(536), 1941-1952. https://doi.org/10.1080/01621459.2020.1751646'
+        url: https://doi.org/10.1080/01621459.2020.1751646
+
+    armstrong2020:
+        type: 'article'
+        author: Armstrong, T. B., & Kolesar, M.
+        year: 2020
+        title: 'Simple and Honest Confidence Intervals in Nonparametric Regression'
+        publisher: 'Quantitative Economics, 11(1), 1-39. https://doi.org/10.3982/QE1199'
+        url: https://doi.org/10.3982/QE1199
+
+    grembi2016:
+        type: 'article'
+        author: Grembi, V., Nannicini, T., & Troiano, U.
+        year: 2016
+        title: 'Do Fiscal Rules Matter?'
+        publisher: 'American Economic Journal: Applied Economics, 8(3), 1-30. https://doi.org/10.1257/app.20150076'
+        url: https://doi.org/10.1257/app.20150076
+
+    rdmulti:
+        type: 'software'
+        author: Cattaneo, M. D., Titiunik, R., & Vazquez-Bare, G.
+        year: 2024
+        title: 'rdmulti: Analysis of RD Designs with Multiple Cutoffs or Scores'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=rdmulti
+
+    rdhonest:
+        type: 'software'
+        author: Kolesar, M.
+        year: 2024
+        title: 'RDHonest: Honest Inference in Regression Discontinuity Designs'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=RDHonest
+
+    calonico2025:
+        type: 'article'
+        author: Calonico, S., Cattaneo, M. D., Farrell, M. H., Palomba, F., & Titiunik, R.
+        year: 2025
+        title: 'Treatment Effect Heterogeneity in Regression Discontinuity Designs'
+        publisher: 'arXiv:2503.13696'
+        url: https://arxiv.org/abs/2503.13696
+
+    rdhte:
+        type: 'software'
+        author: Calonico, S., Cattaneo, M. D., Farrell, M. H., Palomba, F., & Titiunik, R.
+        year: 2025
+        title: 'rdhte: Conditional Average Treatment Effects in RD Designs'
+        publisher: 'R package'
+        url: https://CRAN.R-project.org/package=rdhte
+    cattaneo2019power:
+        type: 'article'
+        author: Cattaneo, M. D., Titiunik, R., & Vazquez-Bare, G.
+        year: 2019
+        title: 'Power Calculations for Regression-Discontinuity Designs'
+        publisher: 'The Stata Journal, 19(1), 210-245'
+
+...

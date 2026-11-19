@@ -1,0 +1,182 @@
+---
+title: Regression Discontinuity Family
+name: rdfamily
+version: 1.0.0
+jms: '1.0'
+authors:
+  - Mingchao Sun
+maintainer: Mingchao Sun <mingchao.sun@hotmail.com>
+date: '2026-11-20'
+type: R
+description: >-
+  Regression discontinuity (RD) methods: sharp, fuzzy and kink designs with
+  robust bias-corrected inference, density test, covariate balance, robustness
+  checks, local randomization, multiple cutoffs, honest confidence intervals,
+  geographic and two-score boundaries, difference-in-discontinuities and
+  heterogeneous effects.
+datasets:
+  - name: US Senate elections
+    path: rdsenate.csv
+    description: >-
+      Democratic vote share in the next Senate election against the Democratic
+      margin of victory, 1914-2010, with covariates (rdrobust_RDsenate;
+      Cattaneo, Frandsen and Titiunik, 2015). Outcome vote, running variable
+      margin, cutoff 0.
+  - name: US House elections (Lee 2008)
+    path: lee08_house.csv
+    description: >-
+      Democratic vote share in the next House election against the previous
+      margin of victory (lee08, RDHonest package). Outcome voteshare, running
+      variable margin, cutoff 0.
+  - name: Head Start and child mortality
+    path: headstart.csv
+    description: >-
+      US counties; Head Start assistance was targeted to counties with poverty
+      rate above a cutoff (Ludwig and Miller, 2007; headst, RDHonest). Outcome
+      mortHS, running variable povrate (centered), cutoff 0; covariates hs60,
+      urban, black.
+  - name: Retirement and food spending (fuzzy)
+    path: retirement_food.csv
+    description: >-
+      Retirement status and food spending by years from pension eligibility
+      (Battistin et al., 2009; rcp, RDHonest). Fuzzy RD: outcome food, running
+      variable elig_year, treatment retired, cutoff 0.
+  - name: Unemployment duration in Austria
+    path: austria_unemployment.csv
+    description: >-
+      Unemployment duration by age around 50, before and after a benefit
+      extension (Lalive, 2008; rebp, RDHonest). Difference-in-discontinuities:
+      outcome duration, running variable age, period, cutoff 50.
+  - name: UK school leaving age
+    path: uk_school_leaving.csv
+    description: >-
+      Earnings by year of birth around the 1947 rise in the school leaving age
+      (Oreopoulos, 2006; cghs, RDHonest). Discrete running variable yearat14,
+      cutoff 1947; use Honest CIs.
+  - name: Election data for heterogeneity
+    path: rdhte_elections.csv
+    description: >-
+      Election RD with candidate characteristics (rdhte_dataset, rdhte package).
+      Outcome y, running variable x, cutoff 0, moderators w_left or w_ideology
+      (set to Nominal).
+  - name: Simulated multiple cutoffs
+    path: sim_multicutoff.csv
+    description: >-
+      Simulated: three states with cutoffs 40, 50, 60 and a true effect of 3.
+      Outcome outcome, running variable score, cutoff variable cutoff.
+  - name: Simulated boundary
+    path: sim_boundary.csv
+    description: >-
+      Simulated: two scores, treated if both are non-negative, true effect 2;
+      boundary vertices in bx, by. Outcome outcome, scores score1 and score2.
+  - name: Simulated kink
+    path: sim_kink.csv
+    description: >-
+      Simulated: the slope of the outcome increases by 0.5 at 0. Outcome
+      outcome, running variable running; tick Regression kink design.
+  - name: Simulated difference-in-discontinuities
+    path: sim_diffindisc.csv
+    description: >-
+      Simulated panel observed in two periods: jump 1 before and 3 after
+      (difference 2). Outcome outcome, running variable score, period, unit id.
+analyses:
+  - name: rd
+    title: Regression Discontinuity
+    menuGroup: RDD
+    menuSubgroup: Estimation
+    menuTitle: Sharp / Fuzzy / Kink RD
+    menuSubtitle: Calonico et al. (2014)
+    ns: rdfamily
+    category: analyses
+  - name: rdmc
+    title: RD Multiple Cutoffs
+    menuGroup: RDD
+    menuSubgroup: Estimation
+    menuTitle: Multiple Cutoffs
+    menuSubtitle: Cutoff-specific and pooled (rdmulti)
+    ns: rdfamily
+    category: analyses
+  - name: rdgeo
+    title: RD Geographic / Two-Score Boundary
+    menuGroup: RDD
+    menuSubgroup: Estimation
+    menuTitle: Geographic / Two-Score
+    menuSubtitle: Distance to a boundary
+    ns: rdfamily
+    category: analyses
+  - name: rddid
+    title: RD Difference-in-Discontinuities
+    menuGroup: RDD
+    menuSubgroup: Estimation
+    menuTitle: Diff-in-Discontinuities
+    menuSubtitle: Grembi et al. (2016)
+    ns: rdfamily
+    category: analyses
+  - name: rdhte
+    title: RD Heterogeneous Treatment Effects
+    menuGroup: RDD
+    menuSubgroup: Estimation
+    menuTitle: Heterogeneous Effects (CATE)
+    menuSubtitle: Subgroup and continuous moderators
+    ns: rdfamily
+    category: analyses
+  - name: rddens
+    title: RD Density (Manipulation) Test
+    menuGroup: RDD
+    menuSubgroup: Validity
+    menuTitle: Density Test
+    menuSubtitle: Cattaneo et al. (2020)
+    ns: rdfamily
+    category: analyses
+  - name: rdcov
+    title: RD Covariate Balance / Placebo Outcomes
+    menuGroup: RDD
+    menuSubgroup: Validity
+    menuTitle: Covariate Balance
+    menuSubtitle: Pre-determined covariates
+    ns: rdfamily
+    category: analyses
+  - name: rdpower
+    title: RD Power and Sample Size
+    menuGroup: RDD
+    menuSubgroup: Validity
+    menuTitle: RD Power and Sample Size
+    menuSubtitle: Power, minimum detectable effect and sample size of an RD design
+    ns: rdfamily
+    category: analyses
+  - name: rdsens
+    title: RD Robustness Checks
+    menuGroup: RDD
+    menuSubgroup: Validity
+    menuTitle: Robustness Checks
+    menuSubtitle: Cutoffs, bandwidths, donut, order
+    ns: rdfamily
+    category: analyses
+  - name: rdhonest
+    title: RD Honest Confidence Intervals
+    menuGroup: RDD
+    menuSubgroup: Alternative inference
+    menuTitle: Honest CIs
+    menuSubtitle: Armstrong and Kolesar (2020)
+    ns: rdfamily
+    category: analyses
+  - name: rdlr
+    title: RD Local Randomization
+    menuGroup: RDD
+    menuSubgroup: Alternative inference
+    menuTitle: Local Randomization
+    menuSubtitle: Cattaneo et al. (2015)
+    ns: rdfamily
+    category: analyses
+  - name: rdcmp
+    title: RD Compare Methods
+    menuGroup: RDD
+    menuSubgroup: Compare
+    menuTitle: Compare Methods
+    menuSubtitle: Side-by-side specifications
+    ns: rdfamily
+    category: analyses
+usesNative: true
+minApp: 1.0.8
+
+...

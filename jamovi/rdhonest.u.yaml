@@ -1,0 +1,69 @@
+name: rdhonest
+title: RD Honest Confidence Intervals
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+    - type: VariableSupplier
+      persistentItems: false
+      stretchFactor: 1
+      children:
+          - type: TargetLayoutBox
+            label: Outcome
+            children:
+                - type: VariablesListBox
+                  name: outcome
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Running variable
+            children:
+                - type: VariablesListBox
+                  name: running
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Treatment received (fuzzy RD)
+            children:
+                - type: VariablesListBox
+                  name: treatment
+                  isTarget: true
+                  maxItemCount: 1
+    - type: TextBox
+      name: cutoff
+      label: Cutoff
+      format: number
+    - type: CollapseBox
+      label: Estimation
+      collapsed: true
+      children:
+          - type: LayoutBox
+            children:
+                - type: TextBox
+                  name: M
+                  label: Smoothness bound M (0 = rule of thumb)
+                  format: number
+                - type: ComboBox
+                  name: optCriterion
+                - type: ComboBox
+                  name: kernel
+                - type: ComboBox
+                  name: seMethod
+                - type: TextBox
+                  name: level
+                  label: Confidence level (%)
+                  format: number
+                - type: TextBox
+                  name: hManual
+                  label: Manual bandwidth
+                  format: number
+    - type: CollapseBox
+      label: Output
+      collapsed: true
+      children:
+          - type: CheckBox
+            name: showHelp
+            label: Method notes
+          - type: CheckBox
+            name: showGuide
+            label: Data and setup guide

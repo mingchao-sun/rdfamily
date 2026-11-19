@@ -1,0 +1,95 @@
+name: rdcmp
+title: RD Compare Methods
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+    - type: VariableSupplier
+      persistentItems: false
+      stretchFactor: 1
+      children:
+          - type: TargetLayoutBox
+            label: Outcome
+            children:
+                - type: VariablesListBox
+                  name: outcome
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Running variable
+            children:
+                - type: VariablesListBox
+                  name: running
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Treatment received (fuzzy RD)
+            children:
+                - type: VariablesListBox
+                  name: treatment
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Covariates
+            children:
+                - type: VariablesListBox
+                  name: covs
+                  isTarget: true
+          - type: TargetLayoutBox
+            label: Cluster
+            children:
+                - type: VariablesListBox
+                  name: cluster
+                  isTarget: true
+                  maxItemCount: 1
+    - type: TextBox
+      name: cutoff
+      label: Cutoff
+      format: number
+    - type: CollapseBox
+      label: Methods to include
+      collapsed: true
+      children:
+          - type: LayoutBox
+            children:
+                - type: CheckBox
+                  name: cmpBw
+                - type: CheckBox
+                  name: cmpKernel
+                - type: CheckBox
+                  name: cmpOrder
+                - type: CheckBox
+                  name: cmpHonest
+                - type: CheckBox
+                  name: cmpLocrand
+                - type: TextBox
+                  name: wLocrand
+                  label: Local randomization half-window (0 = main bandwidth)
+                  format: number
+                  enable: (cmpLocrand)
+                - type: TextBox
+                  name: reps
+                  label: Randomizations
+                  format: number
+                  enable: (cmpLocrand)
+                - type: TextBox
+                  name: seed
+                  label: Random seed
+                  format: number
+                  enable: (cmpLocrand)
+                - type: TextBox
+                  name: level
+                  label: Confidence level (%)
+                  format: number
+    - type: CheckBox
+      name: plot
+    - type: CollapseBox
+      label: Output
+      collapsed: true
+      children:
+          - type: CheckBox
+            name: showHelp
+            label: Method notes
+          - type: CheckBox
+            name: showGuide
+            label: Data and setup guide

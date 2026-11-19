@@ -1,0 +1,13 @@
+suppressMessages({library(ggplot2); library(rdrobust); library(rddensity)})
+source("R/common.R")
+d <- read.csv("data/rdsenate.csv")
+pp <- rd_prepare(d, "vote", "margin")
+rp <- rdplot(pp$df$y, pp$df$x, c = 0, p = 4, binselect = "esmv", hide = TRUE)
+st <- list(bins = data.frame(x = rp$vars_bins$rdplot_mean_x, y = rp$vars_bins$rdplot_mean_y),
+           poly = data.frame(x = rp$vars_poly$rdplot_x, y = rp$vars_poly$rdplot_y, side = rp$vars_poly$rdplot_x >= 0), c = 0)
+ggsave("tests/out/rd.png", rd_plot_rd(st, "margin", "vote") + theme_minimal(), width = 6, height = 4)
+x <- pp$df$x; dd <- rddensity(x); pl <- rdplotdensity(dd, x, noPlot = TRUE)
+ggsave("tests/out/dens.png", pl$Estplot + labs(x = "margin", y = "Density") + theme_minimal(), width = 6, height = 4)
+df <- rbind(rd_row(rdrobust(pp$df$y, x), "Main"), rd_row(rdrobust(pp$df$y, x, h = 10), "h=10"))
+ggsave("tests/out/est.png", rd_plot_est(df, "Check", ref = df$coef[1]) + theme_minimal(), width = 6, height = 4)
+cat("ok\n")

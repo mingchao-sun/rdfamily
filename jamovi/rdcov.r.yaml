@@ -1,0 +1,80 @@
+---
+name: rdcov
+title: RD Covariate Balance / Placebo Outcomes
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: balance
+      title: RD effect on each covariate
+      type: Table
+      visible: (covs)
+      refs:
+          - calonico2014
+          - cattaneo2022
+      columns:
+          - name: label
+            title: Covariate
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: balPlot
+      title: Standardized RD effects on covariates
+      type: Image
+      width: 600
+      height: 360
+      renderFun: .plotBal
+      visible: (plot)
+      clearWith:
+          - covs
+          - running
+          - cutVar
+          - cutoff
+          - p
+          - bwselect
+          - kernel
+          - vce
+          - level
+          - cluster
+...

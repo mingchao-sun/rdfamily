@@ -1,0 +1,105 @@
+---
+name: rdhte
+title: RD Heterogeneous Treatment Effects
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: est
+      title: RD effects by moderator
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2025
+          - rdhte
+      columns:
+          - name: label
+            title: ''
+            type: text
+          - name: coef
+            title: Conventional
+            type: number
+          - name: bc
+            title: Bias-corrected
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: test
+      title: Test of equal effects across subgroups
+      type: Table
+      visible: (outcome)
+      columns:
+          - name: label
+            title: ''
+            type: text
+          - name: chi
+            title: Chi-square
+            type: number
+          - name: df
+            title: df
+            type: integer
+          - name: p
+            title: p
+            type: number
+            format: zto,pvalue
+
+    - name: effPlot
+      title: Effects by subgroup
+      type: Image
+      width: 600
+      height: 360
+      renderFun: .plotHte
+      visible: (plot)
+      clearWith:
+          - outcome
+          - running
+          - hte
+          - covs
+          - cluster
+          - cutoff
+          - p
+          - q
+          - bwselect
+          - bwJoint
+          - kernel
+          - vce
+          - level
+...

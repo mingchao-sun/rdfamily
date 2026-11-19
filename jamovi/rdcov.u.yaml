@@ -1,0 +1,73 @@
+name: rdcov
+title: RD Covariate Balance / Placebo Outcomes
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+    - type: VariableSupplier
+      persistentItems: false
+      stretchFactor: 1
+      children:
+          - type: TargetLayoutBox
+            label: Covariates / placebo outcomes
+            children:
+                - type: VariablesListBox
+                  name: covs
+                  isTarget: true
+          - type: TargetLayoutBox
+            label: Running variable
+            children:
+                - type: VariablesListBox
+                  name: running
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Cluster
+            children:
+                - type: VariablesListBox
+                  name: cluster
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Cutoff variable (multiple cutoffs)
+            children:
+                - type: VariablesListBox
+                  name: cutVar
+                  isTarget: true
+                  maxItemCount: 1
+    - type: TextBox
+      name: cutoff
+      label: Cutoff
+      format: number
+    - type: CollapseBox
+      label: Estimation
+      collapsed: true
+      children:
+          - type: LayoutBox
+            children:
+                - type: TextBox
+                  name: p
+                  label: Polynomial order (p)
+                  format: number
+                - type: ComboBox
+                  name: bwselect
+                - type: ComboBox
+                  name: kernel
+                - type: ComboBox
+                  name: vce
+                - type: TextBox
+                  name: level
+                  label: Confidence level (%)
+                  format: number
+    - type: CheckBox
+      name: plot
+    - type: CollapseBox
+      label: Output
+      collapsed: true
+      children:
+          - type: CheckBox
+            name: showHelp
+            label: Method notes
+          - type: CheckBox
+            name: showGuide
+            label: Data and setup guide

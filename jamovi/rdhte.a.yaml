@@ -1,0 +1,137 @@
+---
+name: rdhte
+title: RD Heterogeneous Treatment Effects
+jas: '1.2'
+version: '1.0.0'
+menuGroup: RDD
+menuSubgroup: Estimation
+menuTitle: Heterogeneous Effects (CATE)
+menuSubtitle: Subgroup and continuous moderators
+
+options:
+    - name: data
+      type: Data
+
+    - name: outcome
+      title: Outcome
+      type: Variable
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: running
+      title: Running variable
+      type: Variable
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: hte
+      title: Moderator (nominal = subgroups, continuous = linear interaction)
+      type: Variable
+      permitted:
+          - numeric
+          - factor
+
+    - name: covs
+      title: Efficiency covariates (optional)
+      type: Variables
+      permitted:
+          - numeric
+
+    - name: cluster
+      title: Cluster (optional)
+      type: Variable
+      permitted:
+          - factor
+          - id
+          - numeric
+
+    - name: cutoff
+      title: Cutoff
+      type: Number
+      default: 0
+
+    - name: p
+      title: Local polynomial order
+      type: Integer
+      default: 1
+      min: 0
+      max: 8
+
+    - name: q
+      title: Bias-correction order (0 = p + 1)
+      type: Integer
+      default: 0
+      min: 0
+      max: 9
+
+    - name: bwselect
+      title: Bandwidth selector
+      type: List
+      options:
+          - name: mserd
+            title: 'MSE-optimal, one common'
+          - name: msetwo
+            title: 'MSE-optimal, two different'
+          - name: cerrd
+            title: 'CER-optimal, one common'
+          - name: certwo
+            title: 'CER-optimal, two different'
+      default: mserd
+
+    - name: bwJoint
+      title: One joint bandwidth for all subgroups
+      type: Bool
+      default: false
+
+    - name: kernel
+      title: Kernel
+      type: List
+      options:
+          - name: triangular
+            title: Triangular
+          - name: epanechnikov
+            title: Epanechnikov
+          - name: uniform
+            title: Uniform
+      default: triangular
+
+    - name: vce
+      title: Variance estimator
+      type: List
+      options:
+          - name: hc3
+            title: HC3
+          - name: hc2
+            title: HC2
+          - name: hc1
+            title: HC1
+          - name: hc0
+            title: HC0
+      default: hc3
+
+    - name: level
+      title: Confidence level (%)
+      type: Number
+      default: 95
+      min: 50
+      max: 99.9
+
+    - name: plot
+      title: Effects plot
+      type: Bool
+      default: true
+
+    - name: showHelp
+      title: Method notes
+      type: Bool
+      default: false
+
+    - name: showGuide
+      title: Data and setup guide
+      type: Bool
+      default: false
+...

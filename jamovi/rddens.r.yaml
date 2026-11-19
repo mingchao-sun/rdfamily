@@ -1,0 +1,73 @@
+---
+name: rddens
+title: RD Density (Manipulation) Test
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: test
+      title: Density discontinuity test
+      type: Table
+      visible: (running)
+      refs:
+          - cattaneo2020
+          - rddensity
+      columns:
+          - name: hypothesis
+            title: H0
+            type: text
+          - name: t
+            title: T statistic
+            type: number
+          - name: p
+            title: p
+            type: number
+            format: zto,pvalue
+
+    - name: sample
+      title: Sample and bandwidths
+      type: Table
+      visible: (running)
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: left
+            title: Left of cutoff
+            type: number
+          - name: right
+            title: Right of cutoff
+            type: number
+
+    - name: densPlot
+      title: Estimated density
+      type: Image
+      width: 640
+      height: 420
+      renderFun: .plotDens
+      visible: (plot)
+      clearWith:
+          - running
+          - cutVar
+          - cutoff
+          - p
+          - q
+          - kernel
+          - fitselect
+          - vce
+          - hManual
+...

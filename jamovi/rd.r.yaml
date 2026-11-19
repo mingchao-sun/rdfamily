@@ -1,0 +1,117 @@
+---
+name: rd
+title: Regression Discontinuity
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: design
+      title: Design and sample
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+          - rdrobust
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: left
+            title: Left of cutoff
+            type: text
+          - name: right
+            title: Right of cutoff
+            type: text
+
+    - name: estimates
+      title: RD treatment effect
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+          - cattaneo2022
+      columns:
+          - name: method
+            title: Method
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Std. error
+            type: number
+          - name: z
+            title: z
+            type: number
+          - name: p
+            title: p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+
+    - name: firstStage
+      title: First stage (jump in treatment received)
+      type: Table
+      visible: (treatment)
+      columns:
+          - name: method
+            title: Method
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Std. error
+            type: number
+          - name: p
+            title: p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+
+    - name: rdPlot
+      title: RD plot
+      type: Image
+      width: 640
+      height: 420
+      renderFun: .plotRd
+      visible: (plot)
+      clearWith:
+          - outcome
+          - running
+          - cutVar
+          - cutoff
+          - covs
+          - plotBins
+          - plotOrder
+          - plotWindow
+          - p
+          - kernel
+          - bwselect
+          - hManual
+          - donut
+...

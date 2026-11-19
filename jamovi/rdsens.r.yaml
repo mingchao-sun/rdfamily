@@ -1,0 +1,338 @@
+---
+name: rdsens
+title: RD Robustness Checks
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: placeboTable
+      title: Placebo cutoffs
+      type: Table
+      visible: (placeboCheck)
+      refs:
+          - calonico2014
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - placeboCuts
+          - placeboCheck
+          - placeboFig
+      columns:
+          - name: label
+            title: Placebo cutoff
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: placeboPlot
+      title: Placebo cutoffs
+      type: Image
+      width: 600
+      height: 380
+      renderFun: .plotPlacebo
+      visible: (placeboFig)
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - placeboCuts
+          - placeboCheck
+          - placeboFig
+
+    - name: bwTable
+      title: Bandwidth sensitivity
+      type: Table
+      visible: (bwCheck)
+      refs:
+          - calonico2014
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - bwMult
+          - bwCheck
+          - bwFig
+      columns:
+          - name: label
+            title: Bandwidth (x optimal)
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: bwPlot
+      title: Bandwidth sensitivity
+      type: Image
+      width: 600
+      height: 380
+      renderFun: .plotBw
+      visible: (bwFig)
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - bwMult
+          - bwCheck
+          - bwFig
+
+    - name: donutTable
+      title: Donut hole
+      type: Table
+      visible: (donutCheck)
+      refs:
+          - calonico2014
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - donutRadii
+          - donutCheck
+          - donutFig
+      columns:
+          - name: label
+            title: Donut radius
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: donutPlot
+      title: Donut hole
+      type: Image
+      width: 600
+      height: 380
+      renderFun: .plotDonut
+      visible: (donutFig)
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - donutRadii
+          - donutCheck
+          - donutFig
+
+    - name: polyTable
+      title: Polynomial order
+      type: Table
+      visible: (polyCheck)
+      refs:
+          - calonico2014
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - polyOrders
+          - polyCheck
+          - polyFig
+      columns:
+          - name: label
+            title: Order p
+            type: text
+          - name: coef
+            title: Estimate
+            type: number
+          - name: se
+            title: Robust s.e.
+            type: number
+          - name: p
+            title: Robust p
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: CI lower
+            type: number
+          - name: hi
+            title: CI upper
+            type: number
+          - name: hl
+            title: h (left)
+            type: number
+          - name: hr
+            title: h (right)
+            type: number
+          - name: nl
+            title: N (left)
+            type: integer
+          - name: nr
+            title: N (right)
+            type: integer
+
+    - name: polyPlot
+      title: Polynomial order
+      type: Image
+      width: 600
+      height: 380
+      renderFun: .plotPoly
+      visible: (polyFig)
+      clearWith:
+          - outcome
+          - running
+          - treatment
+          - covs
+          - cluster
+          - cutVar
+          - cutoff
+          - p
+          - kernel
+          - bwselect
+          - vce
+          - level
+          - polyOrders
+          - polyCheck
+          - polyFig
+
+...

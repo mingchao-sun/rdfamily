@@ -1,0 +1,137 @@
+---
+name: rdpower
+title: 'RD Power and Sample Size'
+jas: '1.2'
+version: '1.0.0'
+menuGroup: RDD
+menuTitle: 'RD Power and Sample Size'
+menuSubtitle: 'Power, minimum detectable effect and sample size of an RD design'
+
+options:
+    - name: data
+      type: Data
+
+    - name: outcome
+      title: 'Outcome'
+      type: Variable
+      permitted:
+          - numeric
+
+    - name: running
+      title: 'Running variable'
+      type: Variable
+      permitted:
+          - numeric
+
+    - name: treatment
+      title: 'Treatment received (fuzzy RD, optional)'
+      type: Variable
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: covs
+      title: 'Covariates (optional)'
+      type: Variables
+      suggested:
+          - continuous
+      permitted:
+          - numeric
+
+    - name: cutoff
+      title: 'Cutoff'
+      type: Number
+      default: 0
+
+    - name: mode
+      title: 'Calculate'
+      type: List
+      options:
+          - name: power
+            title: 'Power for an effect'
+          - name: mde
+            title: 'Minimum detectable effect'
+          - name: sampsi
+            title: 'Sample size for a power'
+      default: power
+
+    - name: tau
+      title: 'Effect to detect (outcome units)'
+      type: Number
+      default: 1
+
+    - name: alpha
+      title: 'Significance level'
+      type: Number
+      default: 0.05
+      min: 0.0001
+      max: 0.5
+
+    - name: beta
+      title: 'Target power'
+      type: Number
+      default: 0.8
+      min: 0.5
+      max: 0.9999
+
+    - name: p
+      title: 'Local polynomial order'
+      type: Integer
+      default: 1
+      min: 0
+      max: 8
+
+    - name: kernel
+      title: 'Kernel'
+      type: List
+      options:
+          - name: triangular
+            title: 'Triangular'
+          - name: epanechnikov
+            title: 'Epanechnikov'
+          - name: uniform
+            title: 'Uniform'
+      default: triangular
+
+    - name: bwselect
+      title: 'Bandwidth selector'
+      type: List
+      options:
+          - name: mserd
+            title: 'MSE-optimal, one common'
+          - name: msetwo
+            title: 'MSE-optimal, two different'
+          - name: cerrd
+            title: 'CER-optimal, one common'
+          - name: certwo
+            title: 'CER-optimal, two different'
+      default: mserd
+
+    - name: vce
+      title: 'Variance estimator'
+      type: List
+      options:
+          - name: nn
+            title: 'Nearest neighbor'
+          - name: hc0
+            title: 'HC0'
+          - name: hc1
+            title: 'HC1'
+          - name: hc2
+            title: 'HC2'
+          - name: hc3
+            title: 'HC3'
+      default: nn
+
+    - name: showHelp
+      title: 'Method notes'
+      type: Bool
+      default: false
+
+    - name: showGuide
+      title: 'Data and setup guide'
+      type: Bool
+      default: false
+
+...

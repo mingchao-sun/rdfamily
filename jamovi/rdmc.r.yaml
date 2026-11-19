@@ -1,0 +1,83 @@
+---
+name: rdmc
+title: RD Multiple Cutoffs
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: est
+      title: Cutoff-specific, weighted and pooled RD effects
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+          - cattaneo2021
+      columns:
+          - name: label
+            title: 'Cutoff'
+            type: text
+          - name: coef
+            title: 'Conventional'
+            type: number
+          - name: bc
+            title: 'Bias-corrected'
+            type: number
+          - name: p
+            title: 'Robust p'
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: 'Robust CI lower'
+            type: number
+          - name: hi
+            title: 'Robust CI upper'
+            type: number
+          - name: hl
+            title: 'h (left)'
+            type: number
+          - name: hr
+            title: 'h (right)'
+            type: number
+          - name: nl
+            title: 'N (left)'
+            type: integer
+          - name: nr
+            title: 'N (right)'
+            type: integer
+          - name: w
+            title: 'Weight'
+            type: number
+
+    - name: effPlot
+      title: Effects by cutoff
+      type: Image
+      width: 640
+      height: 420
+      renderFun: .plotMc
+      visible: (plot)
+      clearWith:
+          - outcome
+          - running
+          - cutVar
+          - treatment
+          - p
+          - bwselect
+          - kernel
+          - vce
+          - level
+
+...

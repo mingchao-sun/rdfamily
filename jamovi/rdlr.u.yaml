@@ -1,0 +1,95 @@
+name: rdlr
+title: RD Local Randomization
+jus: '3.0'
+stage: 0
+compilerMode: tame
+children:
+    - type: VariableSupplier
+      persistentItems: false
+      stretchFactor: 1
+      children:
+          - type: TargetLayoutBox
+            label: Outcome
+            children:
+                - type: VariablesListBox
+                  name: outcome
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Running variable
+            children:
+                - type: VariablesListBox
+                  name: running
+                  isTarget: true
+                  maxItemCount: 1
+          - type: TargetLayoutBox
+            label: Covariates (window selection)
+            children:
+                - type: VariablesListBox
+                  name: covs
+                  isTarget: true
+          - type: TargetLayoutBox
+            label: Cutoff variable (multiple cutoffs)
+            children:
+                - type: VariablesListBox
+                  name: cutVar
+                  isTarget: true
+                  maxItemCount: 1
+    - type: TextBox
+      name: cutoff
+      label: Cutoff
+      format: number
+    - type: CollapseBox
+      label: Window
+      collapsed: true
+      children:
+          - type: LayoutBox
+            children:
+                - type: ComboBox
+                  name: windowMode
+                - type: TextBox
+                  name: wLeft
+                  label: Width, left
+                  format: number
+                  enable: (windowMode:manual)
+                - type: TextBox
+                  name: wRight
+                  label: Width, right
+                  format: number
+                  enable: (windowMode:manual)
+                - type: TextBox
+                  name: nwindows
+                  label: Candidate windows
+                  format: number
+                - type: CheckBox
+                  name: winTable
+    - type: CollapseBox
+      label: Inference
+      collapsed: true
+      children:
+          - type: LayoutBox
+            children:
+                - type: ComboBox
+                  name: statistic
+                - type: TextBox
+                  name: polyOrder
+                  label: Polynomial adjustment order
+                  format: number
+                - type: TextBox
+                  name: reps
+                  label: Randomizations
+                  format: number
+                - type: TextBox
+                  name: seed
+                  label: Random seed
+                  format: number
+    - type: CollapseBox
+      label: Output
+      collapsed: true
+      children:
+          - type: CheckBox
+            name: showHelp
+            label: Method notes
+          - type: CheckBox
+            name: showGuide
+            label: Data and setup guide

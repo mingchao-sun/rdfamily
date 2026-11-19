@@ -1,0 +1,64 @@
+---
+name: rddid
+title: RD Difference-in-Discontinuities
+jrs: '1.1'
+
+items:
+    - name: guide
+      title: Data and setup guide
+      type: Html
+      visible: (showGuide)
+
+    - name: helpText
+      title: Method notes
+      type: Html
+      visible: (showHelp)
+
+    - name: notes
+      title: Notes
+      type: Html
+      visible: true
+
+    - name: est
+      title: Discontinuity before, after and the difference
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+          - grembi2016
+      columns:
+          - name: label
+            title: 'Row'
+            type: text
+          - name: coef
+            title: 'Estimate'
+            type: number
+          - name: se
+            title: 'Robust s.e.'
+            type: number
+          - name: p
+            title: 'Robust p'
+            type: number
+            format: zto,pvalue
+          - name: lo
+            title: 'CI lower'
+            type: number
+          - name: hi
+            title: 'CI upper'
+            type: number
+
+    - name: design
+      title: Bandwidths and sample
+      type: Table
+      visible: (outcome)
+      refs:
+          - calonico2014
+      columns:
+          - name: item
+            title: ''
+            type: text
+          - name: value
+            title: 'Value'
+            type: text
+
+...
